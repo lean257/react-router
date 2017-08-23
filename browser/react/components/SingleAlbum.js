@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Songs from '../components/Songs';
 import axios from 'axios'
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
 export default class SingleAlbum extends Component {
   constructor() {
@@ -24,13 +24,13 @@ export default class SingleAlbum extends Component {
     const albumId = this.props.match.params.albumId
 
     return (
-      <Link to={`/albums/${albumId}`} className="album">
+      <NavLink to={`/albums/${albumId}`} className="album">
         <div>
           <h3>{ album.name }</h3>
           <img src={ album.imageUrl } className="img-thumbnail" />
         </div>
         <Songs songs={album.songs} />
-      </Link>
+      </NavLink>
     );
   }
 }
