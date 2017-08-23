@@ -17,6 +17,7 @@ const Artist = db.define('artist', {
 
 Artist.prototype.getAlbums = function () {
   return db.model('album').findAll({
+    where : {artistId : this.id},
     include: [{
       model: db.model('song'),
       include: [{

@@ -11,7 +11,6 @@ export default class SingleAlbum extends Component {
     }
   }
   componentDidMount() {
-    console.log(this.props)
     const albumId = this.props.match.params.albumId
     axios.get(`/api/albums/${albumId}`)
       .then(res => res.data)

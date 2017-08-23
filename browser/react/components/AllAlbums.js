@@ -1,26 +1,13 @@
 import React, { Component } from 'react';
-import axios from 'axios'
-import {Link} from 'react-router-dom'
+import axios from 'axios';
+import StatefulAlbums from './StatefulAlbums';
+import {Link} from 'react-router-dom';
 
-export default class AllAlbums extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      albums: [],
-      selectedAlbum: {}
-    }
-  }
-  componentDidMount () {
-    axios.get('/api/albums/')
-      .then(res => res.data)
-      .then(albums => {
-        this.setState({ albums })
-      })
-  }
-  render () {
-    console.log(this.props)
-    const albums = this.state.albums;
-    const selectAlbum = this.state.selectAlbum;
+// export default class AllAlbums extends Component {
+const AllAlbums = (props) => {
+  
+    const albums = props.albums;
+    // const selectAlbum = this.props.selectAlbum;
 
     return (
       <div>
@@ -45,4 +32,5 @@ export default class AllAlbums extends Component {
       </div>
     );
   }
-}
+
+export default AllAlbums;
